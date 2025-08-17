@@ -1,0 +1,4 @@
+gradient.png is a source 16-bit image for cr.png and cr_.png
+cr.png is 8-bit counterpart of gradient.png
+cr_.png encodes additional information (2 bits per color), so that cr.png could be restored as 10-bit image by ColorfulRender
+no_cr.png is just a simple 8-bit image, so ColorfulRender would not be applied on it

@@ -1,0 +1,5 @@
+This example application shows how ColorfulRender implements FRC 10-bit emulation. For demonstration, the big sprite supports ColorfulRendering & the small one does not. Inspect source code and assets/ folder to figure out how it works!
+
+Press Space to turn 10-bit emulation on/off.
+Press F to inspect how emulation works in slow-mo.
+Press Arrows to move the big sprite.
