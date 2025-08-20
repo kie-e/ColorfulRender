@@ -143,12 +143,18 @@ public:
 
 	void draw(const sf::Drawable& main, const sf::Drawable& additional, const sf::RenderStates& states = sf::RenderStates::Default) {
 		buffer8.draw(main, states);
-		buffer2.draw(additional, states);
+
+		sf::RenderStates states2 = states;
+		states2.blendMode = sf::BlendNone;
+		buffer2.draw(additional, states2);
 	}
 
 	void draw(ColorfulSprite& sprite, const sf::RenderStates& states = sf::RenderStates::Default) {
 		buffer8.draw(*sprite.main, states);
-		buffer2.draw(*sprite.additional, states);
+
+		sf::RenderStates states2 = states;
+		states2.blendMode = sf::BlendNone;
+		buffer2.draw(*sprite.additional, states2);
 	}
 
 	void display(bool doColorfulRender = true) {
@@ -215,5 +221,3 @@ void main()
 // 0.25 - 0.5: mode 1 (+1 to color once every four frames)
 // 0.5 - 0.75: mode 2 (+1 to color twice every four frames)
 // 0.75 - 1.0: mode 3 (+1 to color three times every four frames)
-// Note: There is a bug when shader treats color with low-alpha incorrectly. Always use alpha 255 to avoid this.
-// I know there is something with blending but I don't know how to turn it off.
