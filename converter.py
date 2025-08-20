@@ -48,7 +48,7 @@ if alright:
             main.set_at((x, y), pygame.Color(r >> 2, g >> 2, b >> 2, a >> 2))
 
             if _9bit_mode:
-                additional.set_at((x, y), pygame.Color((r % 4 >> 1) * 150, (g % 4 >> 1) * 150, (b % 4 >> 1) * 150, a % 4 * 75))
+                additional.set_at((x, y), pygame.Color((r % 4 >> 1) * 150, (g % 4 >> 1) * 150, (b % 4 >> 1) * 150, (a % 4 >> 1) * 150))
             else: # 10-bit mode
                 additional.set_at((x, y), pygame.Color(r % 4 * 75, g % 4 * 75, b % 4 * 75, a % 4 * 75))
 

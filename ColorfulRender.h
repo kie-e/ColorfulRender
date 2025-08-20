@@ -83,7 +83,7 @@ public:
 
 		success = success && blackShader.loadFromMemory(blackShaderCode, sf::Shader::Type::Fragment);
 		blackShader.setUniform("texture", sf::Shader::CurrentTexture);
-		
+
 		return success;
 	}
 
@@ -193,14 +193,12 @@ void main()
 	vec4 inputAdditionalColor = texture2D(addition, gl_TexCoord[0].xy);
 	vec4 outColor;
 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 4; i++) {
 		outColor[i] = inputBaseColor[i] +
 			((frame == 0) * (inputAdditionalColor[i] >= 0.25) * (inputAdditionalColor[i] < 0.5) +
 			(frame % 2) * (inputAdditionalColor[i] >= 0.5) * (inputAdditionalColor[i] < 0.75) +
 			(frame != 0) * (inputAdditionalColor[i] >= 0.75)) / 256.0;
 	}
-
-	outColor.a = inputBaseColor.a;
 
 	gl_FragColor = gl_Color * outColor;
 }
